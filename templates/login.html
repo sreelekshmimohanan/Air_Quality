@@ -1,0 +1,53 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<br>
+
+  <section id="contact" class="tm-section-pad-top tm-parallax-2">
+    
+      <div class="container tm-container-contact">
+        
+        <div class="row justify-content-center">
+            
+            <div class="text-center col-12">
+                <h2 class="tm-section-title mb-4">LOGIN </h2>
+               <br>
+            </div>
+            
+            <div class="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
+              <form action="addlogin" method="POST" style="width:100%; max-width:400px;">
+                {% csrf_token %}
+                <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
+                <input id="message" name="password" rows="5" placeholder="Your Password" class="tm-input" required>
+
+
+                {% if message %}
+                <div class="alert alert-success">{{ message }}</div>
+                {% endif %}
+                <button type="submit" class="btn tm-btn-submit">Submit</button>
+              </form>
+            </div>
+            
+            <div class="col-sm-12 col-md-6">
+
+                
+               
+                
+              
+                
+               
+                
+                <div class="contact-item">&nbsp;</div>
+            
+            </div>
+            
+            
+        </div><!-- row ending -->
+        
+      </div>
+
+
+
+{% include 'footer.html' %}
+    {% endblock %}

@@ -1,0 +1,74 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Infinite Loop - Bootstrap 4.0 HTML Template</title>
+    <link rel="stylesheet" href="{% static 'fontawesome-5.5/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'slick/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'magnific-popup/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tooplate-infinite-loop.css' %}" />
+<!--
+Tooplate 2117 Infinite Loop
+https://www.tooplate.com/view/2117-infinite-loop
+-->
+
+  </head>
+  <body>    
+    <!-- Hero section -->
+    <section id="infinite" class="text-white tm-font-big tm-parallax">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+        <div class="container">   
+          <div class="tm-next">
+              <a href="/index" class="navbar-brand"> Air Quality</a>
+          </div>             
+            
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                  {% if  request.session.logint %}
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'first' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'viewuser' %}">Viewuser</a>
+              </li>
+               <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+{% elif request.session.uid %}
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="{% url 'first' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'upload' %}">upload</a>
+              </li>
+               <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'logout' %}">Logout</a>
+              </li>
+              {% else %}
+               <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="{% url 'first' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'reg' %}">Register</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link tm-nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+                {% endif %}     
+             
+            </ul>
+          </div>        
+        </div>
+      </nav>
+
+    {% endblock %}

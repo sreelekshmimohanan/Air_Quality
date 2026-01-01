@@ -1,0 +1,62 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+
+<br>
+
+  <section id="contact" class="tm-section-pad-top tm-parallax-2">
+    
+      <div class="container tm-container-contact">
+        
+        <div class="row">
+            
+            <div class="text-center col-12">
+                <h2 class="tm-section-title mb-4" style="color:#111111;">Users</h2>
+               <br>
+            </div>
+            
+            <div class="col-12">
+                <div class="row justify-content-center">
+                  {% if data %}
+                    {% for i in data %}
+                    <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                      <div class="card shadow h-100">
+                        <div class="card-body">
+                          <h5 class="card-title" style="color:#111;">{{ i.name }}</h5>
+                          <p class="card-text" style="color:#111;"><strong>Email:</strong> {{ i.email }}</p>
+                          <p class="card-text" style="color:#111;"><strong>Phone:</strong> {{ i.phone }}</p>
+                          <p class="card-text" style="color:#111;"><strong>Password:</strong> {{ i.password }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  {% else %}
+                    <div class="col-12 text-center">
+                      <p style="color:#111;">No users found.</p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            
+            <div class="col-sm-12 col-md-6">
+
+                
+               
+                
+              
+                
+               
+                
+                <div class="contact-item">&nbsp;</div>
+            
+            </div>
+            
+            
+        </div><!-- row ending -->
+        
+      </div>
+
+
+
+{% include 'footer.html' %}
+    {% endblock %}
