@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME':'quality_db',
+        'NAME':'airquality_db',
         'HOST':'localhost',
         'USER':'root',
         'PASSWORD':'',

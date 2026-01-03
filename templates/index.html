@@ -1,58 +1,168 @@
 {% load static %}
 {% block content %}
- 
- {% include 'header.html' %}
 
+{% include 'header.html' %}
 
-
-      
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
-            <h2 class="tm-hero-title">Air Quality</h2>
-           
-        </div>        
+            <h2 class="tm-hero-title">Air Quality Prediction System</h2>
+            <p class="tm-hero-subtitle">Predict and monitor air quality using advanced machine learning</p>
+        </div>
       </div>
 
       <div class="tm-next tm-intro-next">
-        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+        <a href="#about" class="text-center tm-down-arrow-link">
           <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
         </a>
-      </div>      
-    </section>
-
-    <section id="whatwedo" class="tm-section-pad-top">
-      
-      <div class="container">
-
-           
-
-            </div><!-- first row -->
-           
-               
-             
-
-            </div><!-- second row -->
-            
-           <!-- third row -->
-
-        </div>
-      
-    </section>
-    
-
-    
-
-    <!-- Contact -->
-   
-            
-            
-        </div><!-- row ending -->
-        
       </div>
+    </section>
 
+    <section id="about" class="tm-section-pad-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center mb-5">
+              <h2 class="tm-section-title">About Air Quality</h2>
+              <p class="tm-section-subtitle">Understanding the importance of clean air</p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3>Why Air Quality Matters</h3>
+            <p>Air quality affects our health, environment, and daily lives. Poor air quality can lead to respiratory problems, cardiovascular diseases, and environmental damage. Our system helps you predict AQI (Air Quality Index) based on pollutant levels.</p>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-check-circle text-success mr-2"></i> Real-time AQI prediction</li>
+              <li><i class="fas fa-check-circle text-success mr-2"></i> Multiple pollutant analysis</li>
+              <li><i class="fas fa-check-circle text-success mr-2"></i> User-friendly interface</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="bg-light p-5 rounded">
+              <i class="fas fa-wind fa-5x text-primary mb-3"></i>
+              <h4>Clean Air for Better Health</h4>
+              <p>Monitor and predict air quality to protect yourself and your community.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="features" class="tm-section-pad-top bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center mb-5">
+              <h2 class="tm-section-title">Features</h2>
+              <p class="tm-section-subtitle">What our system offers</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <div class="mb-3">
+                  <i class="fas fa-upload fa-3x text-primary"></i>
+                </div>
+                <h5 class="card-title">CSV Upload</h5>
+                <p class="card-text">Upload your air quality data in CSV format for instant analysis and prediction.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <div class="mb-3">
+                  <i class="fas fa-brain fa-3x text-success"></i>
+                </div>
+                <h5 class="card-title">ML Prediction</h5>
+                <p class="card-text">Advanced machine learning algorithms predict AQI based on pollutant concentrations.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 border-0 shadow-sm">
+              <div class="card-body text-center">
+                <div class="mb-3">
+                  <i class="fas fa-chart-line fa-3x text-info"></i>
+                </div>
+                <h5 class="card-title">Data Visualization</h5>
+                <p class="card-text">View detailed pollutant information and prediction results in an easy-to-understand format.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="tm-section-pad-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center mb-5">
+              <h2 class="tm-section-title">How It Works</h2>
+              <p class="tm-section-subtitle">Simple steps to predict air quality</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 text-center mb-4">
+            <div class="step-circle mx-auto mb-3">1</div>
+            <h5>Upload Data</h5>
+            <p>Upload a CSV file with pollutant values or enter them manually.</p>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="step-circle mx-auto mb-3">2</div>
+            <h5>AI Analysis</h5>
+            <p>Our machine learning model analyzes the data and predicts AQI.</p>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <div class="step-circle mx-auto mb-3">3</div>
+            <h5>Get Results</h5>
+            <p>View your AQI prediction with category and detailed breakdown.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="tm-section-pad-top bg-primary text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h2>Ready to Check Air Quality?</h2>
+            <p class="mb-4">Start predicting AQI and contribute to better air quality monitoring.</p>
+            {% if request.session.uid %}
+              <a href="{% url 'upload' %}" class="btn btn-light btn-lg">Get Started</a>
+            {% else %}
+              <a href="{% url 'reg' %}" class="btn btn-light btn-lg mr-3">Register</a>
+              <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Login</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
 
 {% include 'footer.html' %}
 
+<style>
+.step-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.tm-section-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+</style>
 
 {% endblock %}

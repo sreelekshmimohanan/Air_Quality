@@ -2,7 +2,14 @@
 {% block content %}
 {% include 'header.html' %}
 
-<br>
+<style>
+#infinite {
+    background-image: url('{% static 'img/infinite-loop-03.jpg' %}');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+</style>
 
   <section id="contact" class="tm-section-pad-top tm-parallax-2">
     
@@ -11,24 +18,25 @@
         <div class="row">
             
             <div class="text-center col-12">
-                <h2 class="tm-section-title mb-4">Contact Us</h2>
+                <h2 class="tm-section-title mb-4">Register</h2>
                <br>
             </div>
             
             <div class="col-sm-12 col-md-6">
                 <center>
-              <form action="addreg" method="POST">
+              <form action="{% url 'addreg' %}" method="POST">
                 {% csrf_token %}
                 <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
                 <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
                 <input id="subject" name="phone" type="text" placeholder="Enter Your Phone Number" class="tm-input" required />
-                <input id="message" name="password" rows="5" placeholder="Your Password" class="tm-input" required>
+                <input id="message" name="password" type="password" placeholder="Your Password" class="tm-input" required>
 
 
                 {% if message %}
                 <div class="alert alert-success">{{ message }}</div>
                 {% endif %}
-                <button type="submit" class="btn tm-btn-submit">Submit</button>
+                <button type="submit" class="btn tm-btn-submit">Register</button>
+                <p class="mt-3 text-center"><a href="{% url 'login' %}">Already have an account? Login</a></p>
               </form></center>
             </div>
             

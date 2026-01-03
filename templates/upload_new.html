@@ -20,7 +20,7 @@
             <div class="col-sm-12 col-md-6">
                 <h3 class="text-center mb-4">File Upload</h3>
                 <center>
-              <form action="{% url 'addupload' %}" method="POST" enctype="multipart/form-data">
+              <form action="addupload" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input id="fileupload" name="fileupload" type="file" class="tm-input" required />
                 <br><br>
@@ -30,41 +30,30 @@
                 <p>Uploaded file: <a href="{{ uploaded_file_url }}" target="_blank">{{ uploaded_file_url }}</a></p>
                 {% endif %}
 
-                {% if file_uploaded %}
-                <div class="alert alert-info">Form fields have been filled with data from the uploaded CSV file and AQI prediction has been performed automatically.</div>
-                {% endif %}
-
-                {% if csv_data.error %}
-                <div class="alert alert-warning">{{ csv_data.error }}</div>
-                {% endif %}
-
                 {% if message %}
                 <div class="alert alert-success">{{ message }}</div>
                 {% endif %}
                 <button type="submit" class="btn tm-btn-submit">Upload File</button>
               </form></center>
             </div>
-            <!-- {% if csv_data %}
-            <div class="alert alert-info">{{ csv_data }}</div>
-            {% endif %} -->
 
             <!-- AQI Prediction Section -->
             <div class="col-sm-12 col-md-6">
                 <h3 class="text-center mb-4">AQI Prediction</h3>
-                <form action="{% url 'predict_aqi' %}" method="POST">
+                <form action="predict_aqi" method="POST">
                     {% csrf_token %}
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="pm25">PM2.5 (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="pm25" name="pm25" value="{{ pm25 }}" required>
+                                <input type="number" step="0.01" class="form-control" id="pm25" name="pm25" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="pm10">PM10 (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="pm10" name="pm10" value="{{ pm10 }}" required>
+                                <input type="number" step="0.01" class="form-control" id="pm10" name="pm10" required>
                             </div>
                         </div>
                     </div>
@@ -73,13 +62,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="no">NO (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="no" name="no" value="{{ no }}" required>
+                                <input type="number" step="0.01" class="form-control" id="no" name="no" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="no2">NO2 (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="no2" name="no2" value="{{ no2 }}" required>
+                                <input type="number" step="0.01" class="form-control" id="no2" name="no2" required>
                             </div>
                         </div>
                     </div>
@@ -88,13 +77,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nox">NOx (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="nox" name="nox" value="{{ nox }}" required>
+                                <input type="number" step="0.01" class="form-control" id="nox" name="nox" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nh3">NH3 (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="nh3" name="nh3" value="{{ nh3 }}" required>
+                                <input type="number" step="0.01" class="form-control" id="nh3" name="nh3" required>
                             </div>
                         </div>
                     </div>
@@ -103,13 +92,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="co">CO (mg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="co" name="co" value="{{ co }}" required>
+                                <input type="number" step="0.01" class="form-control" id="co" name="co" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="so2">SO2 (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="so2" name="so2" value="{{ so2 }}" required>
+                                <input type="number" step="0.01" class="form-control" id="so2" name="so2" required>
                             </div>
                         </div>
                     </div>
@@ -118,13 +107,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="o3">O3 (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="o3" name="o3" value="{{ o3 }}" required>
+                                <input type="number" step="0.01" class="form-control" id="o3" name="o3" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="benzene">Benzene (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="benzene" name="benzene" value="{{ benzene }}" required>
+                                <input type="number" step="0.01" class="form-control" id="benzene" name="benzene" required>
                             </div>
                         </div>
                     </div>
@@ -133,13 +122,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="toluene">Toluene (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="toluene" name="toluene" value="{{ toluene }}" required>
+                                <input type="number" step="0.01" class="form-control" id="toluene" name="toluene" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="xylene">Xylene (μg/m³)</label>
-                                <input type="number" step="0.01" class="form-control" id="xylene" name="xylene" value="{{ xylene }}" required>
+                                <input type="number" step="0.01" class="form-control" id="xylene" name="xylene" required>
                             </div>
                         </div>
                     </div>
@@ -152,30 +141,14 @@
         </div><!-- row ending -->
 
         <!-- Prediction Results -->
-        {% if predicted_aqi or prediction_result %}
+        {% if predicted_aqi %}
         <div class="row mt-5">
             <div class="col-12">
                 <div class="alert alert-success text-center">
                     <h3>AQI Prediction Results</h3>
-                    {% if prediction_result %}
-                    <h2 style="color: {{ prediction_result.color }}; font-size: 3rem;">{{ prediction_result.predicted_aqi }}</h2>
-                    <h4>Category: <span style="color: {{ prediction_result.color }};">{{ prediction_result.category }}</span></h4>
-                    {% else %}
                     <h2 style="color: {{ color }}; font-size: 3rem;">{{ predicted_aqi }}</h2>
                     <h4>Category: <span style="color: {{ color }};">{{ category }}</span></h4>
-                    {% endif %}
                     <p>The air quality data has been saved to the database.</p>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-
-        {% if prediction_result and prediction_result.error %}
-        <div class="row mt-3">
-            <div class="col-12">
-                <div class="alert alert-danger text-center">
-                    <h4>Prediction Error</h4>
-                    <p>{{ prediction_result.error }}</p>
                 </div>
             </div>
         </div>

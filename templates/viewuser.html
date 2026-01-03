@@ -11,28 +11,33 @@
         <div class="row">
             
             <div class="text-center col-12">
-                <h2 class="tm-section-title mb-4" style="color:#111111;">Users</h2>
-               <br>
+                <h2 class="tm-section-title mb-4" style="color:#111111;">Registered Users</h2>
+                <p class="mb-5">View all registered users in the system</p>
             </div>
             
             <div class="col-12">
                 <div class="row justify-content-center">
                   {% if data %}
-                    {% for i in data %}
+                    {% for user in data %}
                     <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                      <div class="card shadow h-100">
-                        <div class="card-body">
-                          <h5 class="card-title" style="color:#111;">{{ i.name }}</h5>
-                          <p class="card-text" style="color:#111;"><strong>Email:</strong> {{ i.email }}</p>
-                          <p class="card-text" style="color:#111;"><strong>Phone:</strong> {{ i.phone }}</p>
-                          <p class="card-text" style="color:#111;"><strong>Password:</strong> {{ i.password }}</p>
+                        <div class="card shadow h-100 border-0" style="border-radius: 10px;">
+                            <div class="card-body text-center">
+                                <div class="mb-3">
+                                    <i class="fas fa-user-circle fa-3x text-primary"></i>
+                                </div>
+                                <h5 class="card-title text-dark mb-3">{{ user.name }}</h5>
+                                <p class="card-text text-muted mb-2"><i class="fas fa-envelope mr-2"></i>{{ user.email }}</p>
+                                <p class="card-text text-muted mb-2"><i class="fas fa-phone mr-2"></i>{{ user.phone }}</p>
+                                <p class="card-text text-muted"><i class="fas fa-lock mr-2"></i>Password: {{ user.password|truncatechars:10 }}</p>
+                            </div>
                         </div>
-                      </div>
                     </div>
                     {% endfor %}
                   {% else %}
-                    <div class="col-12 text-center">
-                      <p style="color:#111;">No users found.</p>
+                    <div class="text-center mt-5">
+                        <i class="fas fa-users fa-4x text-muted mb-3"></i>
+                        <h4 class="text-muted">No Users Found</h4>
+                        <p class="text-muted">There are no registered users in the system yet.</p>
                     </div>
                   {% endif %}
                 </div>
