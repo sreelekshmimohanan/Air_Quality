@@ -2,31 +2,41 @@
 {% block content %}
 {% include 'header.html' %}
 
-<br>
+<style>
+#infinite {
+    background-image: url('{% static 'img/infinite-loop-03.jpg' %}');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+</style>
 
   <section id="contact" class="tm-section-pad-top tm-parallax-2">
     
       <div class="container tm-container-contact">
         
-        <div class="row justify-content-center">
+        <div class="row">
             
             <div class="text-center col-12">
-                <h2 class="tm-section-title mb-4">LOGIN </h2>
+                <h2 class="tm-section-title mb-4">Login</h2>
                <br>
             </div>
             
-            <div class="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
-              <form action="addlogin" method="POST" style="width:100%; max-width:400px;">
+            <div class="col-sm-12 col-md-6">
+                <center>
+              <form action="{% url 'addlogin' %}" method="POST">
                 {% csrf_token %}
+                
                 <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
-                <input id="message" name="password" rows="5" placeholder="Your Password" class="tm-input" required>
+                <input id="message" name="password" type="password" placeholder="Your Password" class="tm-input" required>
 
 
                 {% if message %}
                 <div class="alert alert-success">{{ message }}</div>
                 {% endif %}
-                <button type="submit" class="btn tm-btn-submit">Submit</button>
-              </form>
+                <button type="submit" class="btn tm-btn-submit">Login</button>
+                <p class="mt-3 text-center"><a href="{% url 'reg' %}">Don't have an account? Register  </a></p>
+              </form></center>
             </div>
             
             <div class="col-sm-12 col-md-6">

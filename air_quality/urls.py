@@ -31,6 +31,8 @@ urlpatterns = [
     path('viewuser/',views.viewuser, name='viewuser'),
     path('upload/',views.upload, name='upload'),
     path('upload/addupload',views.addupload, name='addupload'),
+    path('upload/predict_aqi',views.predict_aqi, name='predict_aqi'),
+    path('predictions/',views.view_predictions, name='predictions'),
     path('admin/', admin.site.urls),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
